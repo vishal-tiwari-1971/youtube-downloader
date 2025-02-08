@@ -1,0 +1,17 @@
+{
+  "name": "social-media-downloader",
+  "version": "1.0.0",
+  "description": "a project ot download videos from youtube,x,instagram",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Vishal Tiwari",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "fluent-ffmpeg": "^2.1.3",
+    "yt-dlp-exec": "^1.0.2"
+  }
+}
