@@ -4,16 +4,15 @@ import axios from "axios"
 import Form from "../components/Form";
 import { log } from 'node:console';
 
-
 const Yt = () => {  
-  const [url,setUrl]=useState('');
+  const [videoUrl,setVideoUrl]=useState('');
  
   
   const handleFormSubmit=(url)=>{
     
-     setUrl(url)
+     setVideoUrl(url)
      console.log(url)
-     const respones=axios.post('http://locslhost:5001/ytdownload',url)
+     const respones=axios.post('http://locslhost:5001/ytdownload',videoUrl)
      console.log(respones)
   }
 
@@ -23,6 +22,5 @@ const Yt = () => {
     <Form onSubmit={handleFormSubmit} />  
   </div>
     )
-};
-
+}; 
 export default Yt;  // Export the 'Ins' component (capitalized)
