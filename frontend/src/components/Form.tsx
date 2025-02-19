@@ -1,5 +1,5 @@
 import { useState } from "react";
-const Form=()=>{
+const Form=({ onSubmit })=>{
     const [url,setUrl]=useState('');
          const handleChange=(e)=>{
             setUrl(e.target.value)
@@ -14,7 +14,7 @@ const Form=()=>{
 <div>
 <h2 className="text-center font-semibold">paste your link here !</h2>
 <form onSubmit={handleSubmit}>
-<input type="text" placeholder="paste your url" className="input input-bordered w-full max-w-xs" value={url} />
+<input type="text" placeholder="paste your url" className="input input-bordered w-full max-w-xs" value={url} onChange={handleChange} />
 <button className="btn btn-success" type="submit">Download</button>
 </form>
 </div>
