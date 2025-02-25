@@ -8,11 +8,13 @@ const Yt = () => {
   const [videoUrl,setVideoUrl]=useState('');
  
   
-  const handleFormSubmit=(url)=>{
+  const handleFormSubmit=(url:any)=>{
     
      setVideoUrl(url)
-     console.log(url)
-     const respones=axios.post('http://locslhost:5001/ytdownload',videoUrl)
+     console.log("video url :",url)
+     const respones=axios.post('http://locslhost:5001/ytdownload',{url}, {headers: {
+      'Content-Type': 'application/json', // Ensure you're sending JSON data
+    }})
      console.log(respones)
   }
 
