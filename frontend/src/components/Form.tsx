@@ -3,11 +3,12 @@ const Form=({ onSubmit })=>{
     const [url,setUrl]=useState('');
          const handleChange=(e)=>{
             setUrl(e.target.value)
-            console.log(e.target.value)
+            // console.log(e.target.value)
          }
          
          const handleSubmit=(e)=>{
             e.preventDefault()
+            onSubmit(url); // Pass the URL to the parent component when form is submitted
             setUrl("")
          }
     return(
