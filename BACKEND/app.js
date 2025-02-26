@@ -7,9 +7,16 @@ const path = require('path');
 const port = 5001;
 
 // Middleware setup
-app.use(cors());
+app.use(cors( {origin: "http://localhost:3000"
+,    // Allow this specific origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods,
+  allowedHeaders: ['Content-Type', 'Authorization', 'withCredentials'],  // Allow these headers
+  credentials: true, // Allow cookies to be sent
+}
+));
 app.use(express.json()); // To parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
+
 
 // Define the output directory for downloads
 const DOWNLOAD_DIR = path.join('C:', 'downloads');
@@ -46,6 +53,7 @@ app.post('/ytdownload', async (req, res) => {
     // Call the download function
     const message = await downloadVideo(videoUrl);
     res.json({ message, status: 'success' });
+    alert("video is now downlading...")
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: error.message });
