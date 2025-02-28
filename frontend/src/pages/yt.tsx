@@ -8,14 +8,18 @@ const Yt = () => {
   const [videoUrl,setVideoUrl]=useState('');
  
   
-  const handleFormSubmit=(url:any)=>{
+  const handleFormSubmit=async(url:any)=>{
     
      setVideoUrl(url)
      console.log("video url :",url)
-     const respones=axios.post('http://locslhost:5001/ytdownload',{url}, {headers: {
-      'Content-Type': 'application/json', // Ensure you're sending JSON data
-    }})
-     console.log(respones)
+    
+   try{
+    const {data} =await axios.post('http://localhost:5001/ytdownload',{ videoUrl: url } )
+      console.log(data);
+    }
+    catch(error){
+      console.error("Error while downloading video:", error);
+    }
   }
 
   return(
